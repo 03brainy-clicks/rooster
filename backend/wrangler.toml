@@ -1,0 +1,6 @@
+name = "medium-blog"
+compatibility_date = "2023-12-01"
+
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNjJjM2JlODUtYjRjYS00YWE3LThkMDMtNTM0MGI1MzRmNjAzIiwidGVuYW50X2lkIjoiNjUzZDE1OWQwZGNkNzg1OThjNGEzZWIzOTNkY2YwY2RhZjBmZDA4MDcyODRmOWVjMWNkNjk5NzhkZDc3ZmMwMyIsImludGVybmFsX3NlY3JldCI6ImUxOTYzMjM3LWU5ZTUtNDIwMy1hOTNiLWE4ZTE3M2E2NDhhYyJ9.DFdy57Yg34hhzAuD_exvnmLgE3qO4fjz7UUMBZ4OKFw"
+JWT_SECRET = "c7K$1p#Gq!zL@8sF2m*oH3vBwN5xU&9i"

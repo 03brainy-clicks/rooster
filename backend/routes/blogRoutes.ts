@@ -41,10 +41,10 @@ blog.get("/", async (c) => {
   }).$extends(withAccelerate());
 
   try {
-    const response = await prisma.post.findMany();
+    const response = await prisma.blog.findMany();
     c.status(200);
     return c.json({
-      posts: response,
+    blogs: response,
     });
   } catch (error) {
     console.error(error);
@@ -61,7 +61,7 @@ blog.get("/:id", async (c) => {
 
   try {
     const id = c.req.param("id");
-    const response = await prisma.post.findUnique({
+    const response = await prisma.blog.findUnique({
       where: {
         id: id,
       },
@@ -74,7 +74,7 @@ blog.get("/:id", async (c) => {
     }
     c.status(200);
     return c.json({
-      post: response,
+      blog: response,
     });
   } catch (error) {
     console.error(error);
@@ -97,15 +97,15 @@ blog.post("/blog", async (c) => {
       published: body.published || false,
       author: { connect: { id: body.authorId } },
     };
-    await prisma.post.create({
+    await prisma.blog.create({
       data: postData,
     });
     c.status(201);
-    return c.json({ message: "Post created successfully" });
+    return c.json({ message: "Blog created successfully" });
   } catch (error) {
     console.error(error);
     c.status(500);
-    return c.json({ message: "Failed to create post" });
+    return c.json({ message: "Failed to create blog" });
   }
 });
 
@@ -117,7 +117,7 @@ blog.put("/:id", async (c) => {
 
   try {
     const id = c.req.param("id");
-    const response = await prisma.post.findUnique({
+    const response = await prisma.blog.findUnique({
       where: {
         id: id,
       },
@@ -126,7 +126,7 @@ blog.put("/:id", async (c) => {
     if (!response) {
       c.status(404);
       return c.json({
-        message: "Blog post doesn't exist.",
+        message: "Blog doesn't exist.",
       });
     }
 
@@ -137,18 +137,18 @@ blog.put("/:id", async (c) => {
       published: body.published || false,
       author: { connect: { id: body.authorId } },
     };
-    await prisma.post.update({
+    await prisma.blog.update({
       where: {
         id: id,
       },
       data: updatedData,
     });
 
-    return c.json({ message: "Post updated successfully" });
+    return c.json({ message: "Blog updated successfully" });
   } catch (error) {
     console.error(error);
     c.status(500);
-    return c.json({ message: "Failed to update post" });
+    return c.json({ message: "Failed to update blog" });
   }
 });
 
@@ -160,7 +160,7 @@ blog.delete("/:id", async (c) => {
 
   try {
     const id = c.req.param("id");
-    await prisma.post.delete({
+    await prisma.blog.delete({
       where: {
         id: id,
       },
@@ -168,12 +168,12 @@ blog.delete("/:id", async (c) => {
 
     c.status(200);
     return c.json({
-      message: "Post Deleted Successfully",
+      message: "Blogg Deleted Successfully",
     });
   } catch (error) {
     console.error(error);
     c.status(500);
-    return c.json({ message: "Failed to delete post" });
+    return c.json({ message: "Failed to delete blog" });
   }
 });
 

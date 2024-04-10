@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { sign } from "hono/jwt";
+import { SigninSchema, SignupSchema } from "@hustler07/common/dist";
 
 const user = new Hono<{
   Bindings: {
@@ -18,6 +19,11 @@ user.post("/signup", async (c) => {
 
   try {
     const body = await c.req.json();
+    const { success } = SignupSchema.safeParse(body);
+    if (!success) {
+      c.status(400);
+      return c.json({ message: "Bad Request" });
+    }
     const user = await prisma.user.create({
       data: {
         email: body.email,
@@ -45,6 +51,11 @@ user.post("/signin", async (c) => {
 
   try {
     const body = await c.req.json();
+    const { success } = SigninSchema.safeParse(body);
+    if (!success) {
+      c.status(400);
+      return c.json({ message: "Bad Request" });
+    }
     const user = await prisma.user.findUnique({
       where: {
         email: body.email,
@@ -53,8 +64,8 @@ user.post("/signin", async (c) => {
     });
 
     if (!user) {
-      c.status(404);
-      return c.json({ message: "User not found" });
+      c.status(403);
+      return c.json({ message: "Invalid Credentials" });
     }
 
     const secret = c.env.JWT_SECRET;

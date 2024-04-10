@@ -10,9 +10,6 @@ type BindingType = {
 
 const app = new Hono<{  
   Bindings: BindingType;
-  Variables: {
-    userId: string;
-  };
 }>();
 
 app.use("/*", cors());

@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.animate {
+  @apply transition-all duration-300;
+}
+
+/* * button  */
+.btnPrimary {
+  @apply cursor-pointer bg-rooster-accent text-white hover:bg-rooster-blue transition-all duration-300 text-sm;
+}
+.btnSecondary {
+  @apply cursor-pointer bg-rooster-accent  text-white hover:bg-rooster-blue transition-all duration-300 text-sm flex items-center justify-center;
+}
+.btnOutline {
+  @apply border cursor-pointer border-rooster-accent text-rooster-accent py-1 px-3  text-sm flex items-center justify-center;
+}
+
+.menu {
+  @apply cursor-pointer p-2 px-3 border-b border-transparent hover:border-rooster-accent transition-all duration-300 flex items-center justify-center;
+}
+
+.authBackground1 {
+  background-image: url("./assets/typewriter.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.authBackground2 {
+  background-image: url("./assets/story.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.background3 {
+  background-image: url("./assets/creative.jpeg");
+  background-size: cover;
+  background-position: 0px -500px;
+}
+
+.background4 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.category {
+  @apply pb-3  border-b px-2 transition-all duration-300 cursor-pointer hover:text-black;
+}
+
+.inputField {
+  @apply w-full transition-all duration-300 border-b mt-1 pb-1 px-2 outline-none text-sm focus:border-rooster-textSecondary;
+}
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #f9f9f9;
+}
+
+/* Styles for the Quill editor container */
+.ql-container.ql-snow {
+  border: none !important;
+  overflow: hidden !important;
+  border-bottom: 0.5px solid #e6e7eb !important;
+}
+
+/* Styles for the Quill editor */
+.ql-container.ql-editor {
+  overflow: hidden !important;
+}
+
+/* Styles for images inside Quill editor paragraphs */
+.ql-container .ql-editor p img {
+  display: inline;
+}
+
+/* Styles for the Quill toolbar */
+.ql-toolbar.ql-snow {
+  border: none !important;
+  position: sticky !important;
+  background-color: white;
+  top: 0px;
+  width: 100%;
+  z-index: 99 !important;
+}

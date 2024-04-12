@@ -55,11 +55,10 @@ const QueryByTag = ({ tag }: QueryByTagProps) => {
   } = useQuery({
     queryKey: ["blogs", token, tag],
     queryFn: () => QueryFn({ token, tag }),
-    enabled: false, // Start with query disabled
+    enabled: false,
   });
 
   useEffect(() => {
-    // Enable query and refetch when tag changes
     refetch();
   }, [tag, refetch]);
 

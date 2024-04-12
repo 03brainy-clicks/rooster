@@ -1,12 +1,11 @@
 import { ChevronLeftIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { authState } from "../recoil/atoms/authAtom";
 import axios from "axios";
 import { useEffect, useRef } from "react";
 import BlogSkeleton from "../skeleton/BlogSkeleton";
-
 const Querfn = async ({
   id,
   token,
@@ -33,7 +32,7 @@ const Querfn = async ({
 const Blog = () => {
   const { id } = useParams();
   const { token } = useRecoilValue(authState);
-
+  const navigate = useNavigate();
   const { isLoading, data: blog } = useQuery({
     queryKey: ["blog", id, token],
     queryFn: () => Querfn({ id, token }),
@@ -49,14 +48,18 @@ const Blog = () => {
   if (isLoading) {
     return <BlogSkeleton />;
   }
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="w-1/2 py-5 mx-auto mt-7">
-      <Link to={"/home"}>
-        <span className="flex items-center text-sm cursor-pointer">
-          <ChevronLeftIcon className="w-4" /> Back
-        </span>
-      </Link>
+      <span
+        onClick={handleBack}
+        className="flex items-center text-sm cursor-pointer"
+      >
+        <ChevronLeftIcon className="w-4" /> Back
+      </span>
       <h1 className="text-3xl font-semibold mt-5">{blog.title}</h1>
       <div className="flex gap-3 items-center my-3">
         <div className="w-7 rounded-full h-7 bg-rooster-accent flex items-center justify-center">

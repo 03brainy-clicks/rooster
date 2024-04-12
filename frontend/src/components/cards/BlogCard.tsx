@@ -1,7 +1,6 @@
 import { UserIcon } from "@heroicons/react/24/outline";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-
 type BlogCardProps = {
   username: string;
   date: string;
@@ -36,10 +35,10 @@ const BlogCard = ({
             <UserIcon className="w-5 text-white" />
           </div>
           <p className="text-sm uppercase">
-            {username} &nbsp;·
-            <span className="text-rooster-textSimple text-sm"> {date}</span>
+            <Link to={`/user/${username}`}>{username}</Link>
           </p>
-
+          <span>·</span>
+          <span className="text-rooster-textSimple text-sm "> {date}</span>
           <span className="p-1 px-2 ml-auto bg-rooster-gray text-xs rounded-full ">
             {tag}
           </span>
@@ -61,4 +60,4 @@ const BlogCard = ({
   );
 };
 
-export default BlogCard;
+export default React.memo(BlogCard);

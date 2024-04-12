@@ -14,13 +14,13 @@ body {
 
 /* * button  */
 .btnPrimary {
-  @apply cursor-pointer bg-rooster-accent text-white hover:bg-rooster-blue transition-all duration-300 text-sm;
+  @apply cursor-pointer bg-rooster-accent text-white hover:bg-rooster-blue transition-all duration-300 text-sm rounded-sm;
 }
 .btnSecondary {
-  @apply cursor-pointer bg-rooster-accent  text-white hover:bg-rooster-blue transition-all duration-300 text-sm flex items-center justify-center;
+  @apply cursor-pointer bg-rooster-accent  text-white hover:bg-rooster-blue transition-all duration-300 text-sm flex items-center justify-center rounded-sm;
 }
 .btnOutline {
-  @apply border cursor-pointer border-rooster-accent text-rooster-accent py-1 px-3  text-sm flex items-center justify-center;
+  @apply border cursor-pointer border-rooster-accent text-rooster-accent py-1 px-3  text-sm flex items-center justify-center rounded-sm;
 }
 
 .menu {
@@ -39,7 +39,7 @@ body {
   background-position: center;
 }
 .background3 {
-  background-image: url("./assets/creative.jpeg");
+  background-image: url("./assets/hero/image7.jpeg");
   background-size: cover;
   background-position: 0px -500px;
 }

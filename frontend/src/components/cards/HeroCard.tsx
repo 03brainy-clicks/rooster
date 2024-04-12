@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import Modal from "../utils/Modal";
-import CreateBlog from "../forms/CreateBlog";
+import CreateBlogForm from "../forms/CreateBlogForm";
 
 const HeroCard = () => {
   const [modalToggler, setModalToggler] = useState(false);
@@ -34,7 +34,7 @@ const HeroCard = () => {
             setOpen={handleToggle}
             heading="Create Blog"
           >
-          <CreateBlog/>
+            <CreateBlogForm />
           </Modal>
         </div>
       </div>

@@ -64,7 +64,7 @@ body {
 }
 
 .background3 {
-  background-image: url("./assets/hero/image7.jpeg");
+  background-image: url("/public/hero/image7.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

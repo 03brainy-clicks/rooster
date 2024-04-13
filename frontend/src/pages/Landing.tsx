@@ -2,12 +2,6 @@ import React from "react";
 import { getFormattedDate } from "../utils/utilsFunctions";
 import { Link } from "react-router-dom";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
-import Image7 from "../assets/landing/image7.jpeg";
-import Travel from "../assets/landing/blogs/travel.jpeg";
-import Music from "../assets/landing/blogs/music.jpeg";
-import LifeStyle from "../assets/landing/blogs/lifestyle.jpeg";
-import World from "../assets/landing/blogs/world.jpeg";
-import Fashion from "../assets/landing/blogs/fashion.jpeg";
 
 type CardProps = {
   tag: string;
@@ -39,31 +33,31 @@ const Landing = () => {
       tag: "Travel",
       title:
         "Embark on a Journey to Explore New Horizons and Discover the Wonders of the World",
-      image: Travel,
+      image: "./landing/blogs/travel.jpeg",
     },
     {
       tag: "Fashion",
       title:
         "Stay Chic and Stylish with the Latest Fashion Must-Haves and Trendy Outfit Ideas",
-      image: Fashion,
+      image: "./landing/blogs/fashion.jpeg",
     },
     {
       tag: "Music",
       title:
         "Let Your Soul Dance to the Melodies and Experience the Transformative Power of Music",
-      image: Music,
+      image: "./landing/blogs/music.jpeg",
     },
     {
       tag: "Lifestyle",
       title:
         "Find Balance and Wellness in Your Life with Simple Tips and Healthy Habits",
-      image: LifeStyle,
+      image: "./landing/blogs/lifestyle.jpeg",
     },
     {
       tag: "World",
       title:
         "Expand Your Global Perspective and Uncover Hidden Treasures Around the World",
-      image: World,
+      image: "./landing/blogs/world.jpeg",
     },
   ];
 
@@ -83,7 +77,11 @@ const Landing = () => {
       <div className="mx-auto py-7">
         <div>
           <div className="overflow-hidden flex items-center justify-center rounded h-[50vh]">
-            <img src={Image7} alt="Random" className="rounded-lg" />
+            <img
+              src={"/landing/image7.jpeg"}
+              alt="Random"
+              className="rounded-lg"
+            />
           </div>
           <p className="text-center text-sm mt-5 text-rooster-textSecondary">
             Moonlit Symphony in Sapphire

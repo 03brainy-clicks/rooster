@@ -137,7 +137,7 @@ const Signup = () => {
 
   return (
     <div className="flex w-screen h-screen">
-      <div className="w-1/2 authBackground2">
+      <div className="hidden lg:block w-1/2 authBackground2">
         <div className="w-full h-full bg-opacity-30 flex flex-col ">
           <div className="flex-1 flex items-center">
             <div className="text-5xl font-bold text-rooster-white text-center w-full">
@@ -156,8 +156,8 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <div className="min-w-96 flex-1 flex items-center justify-center ">
-        <div className="w-2/3 p-12 rounded bg-white">
+      <div className=" md:min-w-96 flex-1 flex items-center justify-center ">
+        <div className=" p-7 w-full md:w-2/3 md:p-12 rounded bg-white">
           <h1 className="text-4xl font-bold">Create an account</h1>
           <div className="my-7 ">
             <p className="font-semibold text-rooster-textSecondary">

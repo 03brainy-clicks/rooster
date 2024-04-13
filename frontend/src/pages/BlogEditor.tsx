@@ -22,6 +22,7 @@ const BlogEditor: React.FC = () => {
   const [published, setPublished] = useState(blog.published);
   const [title, setTitle] = useState(blog?.title || "");
   const [error, setError] = useState<string>("");
+  const [blogDetails, setBlogDetails] = useState({});
   const auth = useRecoilValue(authState);
   const { id } = useParams();
 
@@ -91,6 +92,7 @@ const BlogEditor: React.FC = () => {
             setTitle(blog.title);
             setContent(blog.content);
             setPublished(blog.published);
+            setBlogDetails(blog);
           }
         } catch (error) {
           setError("Error fetching blog");
@@ -103,9 +105,9 @@ const BlogEditor: React.FC = () => {
   return (
     <>
       <div className="w-full bg-white border-b z-10 sticky top-0">
-        <div className="py-3 w-9/12 mx-auto">
+        <div className="w-full md:w-11/12 lg:w-9/12  mx-auto p-5">
           <div className="logo flex items-center justify-between">
-            <Link to={"/"}>
+            <Link to={"/home"}>
               <h3 className="text-2xl font-bold text-rooster-accent">
                 Rooster<span className="text-rooster-black">.</span>
               </h3>
@@ -127,11 +129,12 @@ const BlogEditor: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="py-7 mx-auto w-9/12 h-screen overflow-hidden flex flex-col gap-7">
+      <div className="py-7 mx-auto  md:w-11/12 lg:w-8/12 h-screen overflow-hidden flex flex-col gap-7 p-5">
         {error && <div className="text-red-600 mb-2">Error: {error}</div>}
         <div>
           <span className="text-xs p-1.5 px-2 bg-rooster-accent rounded-full text-white">
             {blog.tag && blog.tag}
+            {blogDetails && blogDetails?.tag}
           </span>
         </div>
         <div>

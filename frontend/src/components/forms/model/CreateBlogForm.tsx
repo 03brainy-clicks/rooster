@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { blogState } from "../../recoil/atoms/blogAtom";
-import InputField from "./Elements/InputField";
+import { blogState } from "../../../recoil/atoms/blogAtom";
+import InputField from "../Elements/InputField";
 
 const CreateBlogForm: React.FC = () => {
   const [title, setTitle] = useState("");

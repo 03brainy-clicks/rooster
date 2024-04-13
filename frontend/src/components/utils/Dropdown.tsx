@@ -31,9 +31,9 @@ const Dropdown: React.FC<DropdownProps> = ({ children, open, setOpen }) => {
   return (
     <div ref={dropdownRef} className="relative">
       {open && (
-        <div className="absolute right-0 mt-2 w-56 rounded-sm shadow-md bg-white ring-1 ring-black ring-opacity-5 z-10">
+        <div className="absolute right-0 mt-2 rounded-sm shadow-md bg-white ring-1 ring-black ring-opacity-5 z-10 top-1">
           <div
-            className="py-1"
+            className=""
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu"

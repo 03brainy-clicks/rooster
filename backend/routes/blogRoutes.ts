@@ -247,11 +247,12 @@ blog.get("/search/tag/:tag", async (c) => {
   }).$extends(withAccelerate());
 
   try {
-    const tag = c.req.param("tag");
+    const tag = c.req.param("tag").toLocaleLowerCase();
     const response = await prisma.blog.findMany({
       where: {
         tag: {
           contains: tag,
+          mode: "insensitive",
         },
       },
       include: {
@@ -281,12 +282,13 @@ blog.get("/search/username/:username", async (c) => {
   }).$extends(withAccelerate());
 
   try {
-    const username = c.req.param("username");
+    const username = c.req.param("username").toLocaleLowerCase();
     const response = await prisma.blog.findMany({
       where: {
         author: {
           username: {
             contains: username,
+            mode: "insensitive",
           },
         },
       },
@@ -317,11 +319,12 @@ blog.get("/search/title/:title", async (c) => {
   }).$extends(withAccelerate());
 
   try {
-    const title = c.req.param("title");
+    let title = c.req.param("title").toLocaleLowerCase();
     const response = await prisma.blog.findMany({
       where: {
         title: {
           contains: title,
+          mode: "insensitive",
         },
       },
       include: {
@@ -351,11 +354,12 @@ blog.get("/search/date/:date", async (c) => {
   }).$extends(withAccelerate());
 
   try {
-    const date = c.req.param("date");
+    const date = c.req.param("date").toLocaleLowerCase();
     const response = await prisma.blog.findMany({
       where: {
         date: {
           contains: date,
+          mode: "insensitive",
         },
       },
       include: {

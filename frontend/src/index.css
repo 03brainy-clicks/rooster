@@ -1,32 +1,56 @@
+/* Font import from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
+/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Body font family */
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+/* image  */
+.content > img {
+  @apply rounded w-full;
+}
+
+/* Common animation class */
 .animate {
   @apply transition-all duration-300;
 }
 
-/* * button  */
+/* Primary button style */
 .btnPrimary {
-  @apply cursor-pointer bg-rooster-accent text-white hover:bg-rooster-blue transition-all duration-300 text-sm rounded-sm;
-}
-.btnSecondary {
-  @apply cursor-pointer bg-rooster-accent  text-white hover:bg-rooster-blue transition-all duration-300 text-sm flex items-center justify-center rounded-sm;
-}
-.btnOutline {
-  @apply border cursor-pointer border-rooster-accent text-rooster-accent py-1 px-3  text-sm flex items-center justify-center rounded-sm;
+  @apply cursor-pointer bg-rooster-accent text-white hover:bg-rooster-blue transition-all duration-300 text-sm rounded;
 }
 
+/* Secondary button style */
+.btnSecondary {
+  @apply cursor-pointer bg-rooster-accent text-white hover:bg-rooster-blue transition-all duration-300 text-sm flex items-center justify-center rounded;
+}
+
+/* Delete button style */
+.btnDelete {
+  @apply cursor-pointer bg-red-500 text-white hover:bg-red-600 transition-all duration-300 text-sm flex items-center justify-center rounded;
+}
+
+/* Outline button style */
+.btnOutline {
+  @apply border cursor-pointer border-rooster-accent text-rooster-accent py-1 px-3 text-sm flex items-center justify-center rounded-sm;
+}
+/* Outline button style */
+.btnOutlineDelete {
+  @apply border cursor-pointer border-red-500 text-red-600 py-1 px-3 text-sm flex items-center justify-center rounded-sm;
+}
+
+/* Menu item style */
 .menu {
   @apply cursor-pointer p-2 px-3 border-b border-transparent hover:border-rooster-accent transition-all duration-300 flex items-center justify-center;
 }
 
+/* Background image styles */
 .authBackground1 {
   background-image: url("./assets/typewriter.jpeg");
   background-size: cover;
@@ -38,10 +62,12 @@ body {
   background-size: cover;
   background-position: center;
 }
+
 .background3 {
   background-image: url("./assets/hero/image7.jpeg");
   background-size: cover;
-  background-position: 0px -500px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .background4 {
@@ -50,43 +76,58 @@ body {
   background-repeat: no-repeat;
 }
 
+/* Category style */
 .category {
-  @apply pb-3  border-b px-2 transition-all duration-300 cursor-pointer hover:text-black;
+  @apply pb-3 border-b px-2 transition-all duration-300 cursor-pointer hover:text-black;
 }
 
+/* Input field style */
 .inputField {
   @apply w-full transition-all duration-300 border-b mt-1 pb-1 px-2 outline-none text-sm focus:border-rooster-textSecondary;
 }
-*::-webkit-scrollbar {
-  width: 3px;
-}
 
+/* Scrollbar styles */
+/* Remove scrollbar track */
 *::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: transparent; /* Make track invisible */
 }
 
+/* Thin scrollbar */
+*::-webkit-scrollbar {
+  width: 8px; /* Set width of scrollbar */
+}
+
+/* Scrollbar thumb */
 *::-webkit-scrollbar-thumb {
-  background: #f9f9f9;
+  background: #f9f9f9; /* Set color of thumb */
+  border-radius: 4px; /* Round corners of thumb */
 }
 
-/* Styles for the Quill editor container */
+/* Hide scrollbar on all axes */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" hides scrollbar */
+  scrollbar-color: transparent transparent; /* thumb and track color */
+}
+
+/* Quill editor styles */
+/* Container */
 .ql-container.ql-snow {
   border: none !important;
   overflow: hidden !important;
   border-bottom: 0.5px solid #e6e7eb !important;
 }
 
-/* Styles for the Quill editor */
+/* Editor */
 .ql-container.ql-editor {
   overflow: hidden !important;
 }
 
-/* Styles for images inside Quill editor paragraphs */
+/* Images inside paragraphs */
 .ql-container .ql-editor p img {
   display: inline;
 }
 
-/* Styles for the Quill toolbar */
+/* Toolbar */
 .ql-toolbar.ql-snow {
   border: none !important;
   position: sticky !important;

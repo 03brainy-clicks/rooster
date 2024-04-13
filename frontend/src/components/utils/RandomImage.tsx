@@ -53,7 +53,7 @@ const RandomImage = () => {
     <>
       {randomImage && (
         <div>
-          <div className="overflow-hidden flex items-center justify-center rounded">
+          <div className="overflow-hidden flex items-center justify-center rounded h-[50vh]">
             <img src={randomImage?.image} alt="Random" className="rounded-lg" />
           </div>
           <p className="text-center text-sm mt-5 text-rooster-textSecondary">

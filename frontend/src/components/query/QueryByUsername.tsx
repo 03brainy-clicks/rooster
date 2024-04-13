@@ -37,7 +37,7 @@ const QueryFn = async ({
 };
 
 const QueryByUsername = () => {
-  const { token } = useRecoilValue(authState);
+  const { token,username:currentUsername } = useRecoilValue(authState);
   const { username } = useParams();
   const {
     isLoading,
@@ -65,6 +65,7 @@ const QueryByUsername = () => {
             blogs.map((blog: Blog) => {
               return (
                 <BlogCard
+                currentUsername={currentUsername}
                   key={blog.id}
                   username={blog.author.username}
                   date={blog.date}

@@ -116,7 +116,7 @@ const UserDetailsForm: React.FC = () => {
         setValue={setDescription}
       />
       <div className="mt-7">
-        <button disabled={loader} className="btnSecondary py-2 px-3 w-1/3">
+        <button disabled={loader} className="btnSecondary py-2 px-5 md:w-1/3">
           {loader && <ButtonLoader />}
           Update
         </button>

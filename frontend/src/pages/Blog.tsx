@@ -53,7 +53,7 @@ const Blog = () => {
   };
 
   return (
-    <div className="w-1/2 py-5 mx-auto mt-7">
+    <div className="p-5 mx-auto md:w-10/12 lg:w-6/12 lg:py-5 lg:mt-7">
       <span
         onClick={handleBack}
         className="flex items-center text-sm cursor-pointer"
@@ -61,8 +61,8 @@ const Blog = () => {
         <ChevronLeftIcon className="w-4" /> Back
       </span>
       <h1 className="text-3xl font-semibold mt-5">{blog.title}</h1>
-      <div className="flex gap-3 items-center my-3">
-        <div className="w-7 rounded-full h-7 bg-rooster-accent flex items-center justify-center">
+      <div className="flex gap-3 items-center my-5">
+        <div className="w-8  rounded-full h-8 bg-rooster-accent flex items-center justify-center">
           <UserIcon className="w-5 text-white" />
         </div>
         <div>
@@ -76,9 +76,9 @@ const Blog = () => {
         Posted on {blog.date}
       </p>
       <div className="my-5">
-        <img src={blog.image} alt="" className="w-full" />
+        <img src={blog.image} alt="" className="w-full rounded" />
       </div>
-      <div className="content mt-3 text-sm" ref={contentRef}></div>
+      <div className="content mt-3 " ref={contentRef}></div>
     </div>
   );
 };

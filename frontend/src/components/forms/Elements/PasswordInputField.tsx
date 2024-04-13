@@ -7,6 +7,7 @@ type PasswordInputFieldProps = {
   setValue: React.Dispatch<React.SetStateAction<string>>;
   required?: boolean;
   disabled?: boolean;
+  placeholder?: string;
 };
 
 const PasswordInputField: React.FC<PasswordInputFieldProps> = ({
@@ -15,6 +16,7 @@ const PasswordInputField: React.FC<PasswordInputFieldProps> = ({
   title,
   required = true,
   disabled = false,
+  placeholder,
 }) => {
   const [toggle, setToggle] = useState(false);
 
@@ -33,6 +35,7 @@ const PasswordInputField: React.FC<PasswordInputFieldProps> = ({
         <input
           type={toggle ? "text" : "password"}
           className="inputField"
+          placeholder={placeholder}
           required={required}
           value={value}
           onChange={(e) => setValue(e.target.value)}

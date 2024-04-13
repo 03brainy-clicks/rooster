@@ -5,7 +5,8 @@ import { useRecoilValue } from "recoil";
 import { authState } from "../recoil/atoms/authAtom";
 import { useParams } from "react-router-dom";
 import Loader from "../components/utils/Loader";
-import React, { useState } from "react";
+import { useState } from "react";
+import { ArrowUpRightIcon, UserIcon } from "@heroicons/react/24/outline";
 
 const QueryFn = async ({
   token,
@@ -26,7 +27,7 @@ const QueryFn = async ({
 };
 
 const Profile = () => {
-  const [activeCategory, setActiveCategory] = useState("about");
+  const [activeCategory, setActiveCategory] = useState("home");
   const { token } = useRecoilValue(authState);
   const { username } = useParams();
   const { isLoading, data: user } = useQuery({
@@ -35,8 +36,8 @@ const Profile = () => {
   });
 
   const categoryList = [
+    { title: "Home", value: "home" },
     { title: "About", value: "about" },
-    { title: "Blogs", value: "blogs" },
   ];
 
   const handleCategory = (value: string) => {
@@ -52,12 +53,23 @@ const Profile = () => {
   }
 
   return (
-    <div className="w-7/12 mx-auto min-h-screen relative">
-      <div className="py-7 flex-1 flex gap-5 items-center">
-        <div className="w-16 h-16 bg-red-500 rounded-full overflow-hidden flex items-center justify-center">
-          <img src={user?.image} alt="" />
+    <div className="px-5  mx-auto min-h-screen relative md:w-11/12 lg:w-8/12">
+      <div className="py-7 flex-1 flex flex-col gap-3 items-center">
+        <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center">
+          {user.image ? (
+            <img src={user?.image} alt="" className="min-w-32 " />
+          ) : (
+            <>
+              {" "}
+              <div className="w-full h-full flex items-center justify-center bg-rooster-accent text-white">
+                <UserIcon className="w-10 h-10" />
+              </div>
+            </>
+          )}
         </div>
-        <h1 className="text-5xl font-semibold ">{user.name}</h1>
+        <h1 className="text-3xl lg:text-5xl  font-semibold uppercase">
+          {user.username}
+        </h1>
       </div>
       <ul className="w-full flex gap-3 text-sm border-b sticky top-0 bg-white pt-5 mb-5 z-1">
         {categoryList.map((item) => (
@@ -75,11 +87,41 @@ const Profile = () => {
         ))}
       </ul>
       <div>
-        {activeCategory === "blogs" && <QueryByUsername />}
-        {activeCategory === "about" && "hello"}
-        <div>
-          <h3 className="text-xl"> {}</h3>
-        </div>
+        {activeCategory === "home" && <QueryByUsername />}
+        {activeCategory === "about" && (
+          <div className="mt-12">
+            <h3 className="text-2xl font-medium mb-2 leading-3">{user.name}</h3>
+            <span className="text-lg fon-medium ">{user.designation}</span>
+            <p className="md:w-2/3 text-sm mt-3">{user.description}</p>
+            <ul className="flex gap-2 text-sm mt-3">
+              {" "}
+              {user.github && (
+                <li className="flex items-center gap-2 cursor-pointer underline">
+                  <a
+                    href={user.github}
+                    target="_black"
+                    className="flex items-center gap-2 cursor-pointer underline"
+                  >
+                    GitHub
+                    <ArrowUpRightIcon className="w-4 h-4" />
+                  </a>
+                </li>
+              )}
+              {user.linkedin && (
+                <li className="flex items-center gap-2 cursor-pointer underline">
+                  <a
+                    href={user.github}
+                    target="_black"
+                    className="flex items-center gap-2 cursor-pointer underline"
+                  >
+                    Linkedin
+                    <ArrowUpRightIcon className="w-4 h-4" />
+                  </a>
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

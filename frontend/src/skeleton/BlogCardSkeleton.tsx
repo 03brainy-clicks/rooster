@@ -1,7 +1,10 @@
 const Skeleton = () => {
   return (
     <div className="w-full py-5 border-b">
-      <div className="flex items-center gap-12 ">
+      <div className="md:flex items-center gap-12 ">
+        <div className="w-full h-48 bg-gray-100 dark:bg-gray-200 animate-pulse mb-5 md:hidden">
+
+        </div>
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-200 animate-pulse"></div>
@@ -22,7 +25,7 @@ const Skeleton = () => {
             <span className="inline-block h-3 w-full bg-gray-100 dark:bg-gray-200 rounded-full animate-pulse"></span>
           </p>
         </div>
-        <div className="w-28 h-28 overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-200 animate-pulse"></div>
+        <div className="w-28 h-28 overflow-hidden md:flex items-center justify-center bg-gray-100 dark:bg-gray-200 animate-pulse hidden"></div>
       </div>
     </div>
   );

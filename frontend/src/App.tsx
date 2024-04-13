@@ -18,6 +18,7 @@ const People = lazy(() => import("./components/query/QueryByPeople"));
 const Settings = lazy(() => import("./pages/settings/Settings"));
 const UserDetails = lazy(() => import("./pages/settings/UserDetails"));
 const ResetPassword = lazy(() => import("./pages/settings/ResetPassword"));
+const AdvanceSettings = lazy(() => import("./pages/settings/AdvanceSettings"));
 
 const App = () => {
   return (
@@ -40,8 +41,9 @@ const App = () => {
           <Route path="/editor/:id" element={<BlogEditor />} />
           <Route path="/user/:username" element={<Profile />} />
           <Route path="/settings" element={<Settings />}>
-            <Route path="account-details" element={<UserDetails />} />
+            <Route path="account" element={<UserDetails />} />
             <Route path="reset-password" element={<ResetPassword />} />
+            <Route path="advance" element={<AdvanceSettings />} />
           </Route>
           <Route path="/search" element={<Search />}>
             <Route path="stories" element={<Stories />} />

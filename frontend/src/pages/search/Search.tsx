@@ -13,7 +13,7 @@ const Search = () => {
   ];
 
   return (
-    <div className="w-7/12 mx-auto py-12">
+    <div className="p-5 mx-auto md:w-11/12 lg:w-7/12">
       <h3 className="text-4xl font-bold line-clamp-1">
         <span className="text-rooster-textSimple">Results for</span> {search}
       </h3>

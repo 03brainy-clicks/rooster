@@ -1,8 +1,8 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, SetStateAction, Dispatch } from "react";
 interface ModalProps {
   open: boolean;
-  setOpen: () => void;
+  setOpen: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
   heading: string;
 }
@@ -16,7 +16,7 @@ const Modal: React.FC<ModalProps> = ({ open, setOpen, children, heading }) => {
         modalRef.current &&
         !modalRef.current.contains(event.target as Node)
       ) {
-        setOpen();
+        setOpen(!open);
       }
     };
 
@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({ open, setOpen, children, heading }) => {
             <div className="p-4 flex items-center justify-between  border-b">
               <h1 className="font-bold">{heading}</h1>
               <XMarkIcon
-                onClick={setOpen}
+                onClick={() => setOpen(!open)}
                 className="w-4 h-4 cursor-pointer text-rooster-textSimple hover:text-red-500"
               />
             </div>

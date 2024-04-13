@@ -3,10 +3,11 @@ import React from "react";
 type InputFieldProps = {
   value: string;
   type: string;
-  title: string;
+  title?: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   required?: boolean;
   disabled?: boolean;
+  placeholder?: string
 };
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -14,6 +15,7 @@ const InputField: React.FC<InputFieldProps> = ({
   setValue,
   type,
   title,
+  placeholder,
   required = true,
   disabled = false,
 }) => {
@@ -29,6 +31,7 @@ const InputField: React.FC<InputFieldProps> = ({
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={disabled}
+        placeholder={placeholder}
       />
     </div>
   );

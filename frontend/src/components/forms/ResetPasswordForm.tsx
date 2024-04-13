@@ -57,7 +57,7 @@ const ResetPasswordForm: React.FC = () => {
       <div className="mt-7">
         <button
           disabled={loader}
-          className="btnSecondary py-2 px-3 w-1/3"
+          className="btnSecondary py-2 px-5 md:w-1/3"
           onClick={handleResetPassword}
         >
           {loader && <ButtonLoader />}

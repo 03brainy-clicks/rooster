@@ -1,6 +1,7 @@
 import { UserIcon } from "@heroicons/react/24/outline";
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import BlogSettingsCard from "./BlogSettingsCard";
 type BlogCardProps = {
   username: string;
   date: string;
@@ -9,6 +10,7 @@ type BlogCardProps = {
   content: string;
   image: string;
   id: string;
+  currentUsername?: string;
 };
 
 const BlogCard = ({
@@ -19,8 +21,10 @@ const BlogCard = ({
   content,
   image,
   id,
+  currentUsername,
 }: BlogCardProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.innerHTML = content;
@@ -28,11 +32,15 @@ const BlogCard = ({
   }, [content]);
 
   return (
-    <div className="w-full py-5 border-b flex items-center gap-12 ">
-      <div className="flex-1">
+    <div className="w-full py-7 border-b flex flex-col items-center gap-5 md:gap-12 md:flex-row ">
+      <div className="flex-1 order-2 md:order-1 ">
         <div className=" flex items-center gap-2 text-sm">
           <div className="w-7 rounded-full h-7 bg-rooster-accent flex items-center justify-center">
-            <UserIcon className="w-5 text-white" />
+            {image ? (
+              <UserIcon className="w-5 text-white" />
+            ) : (
+              <UserIcon className="w-5 text-white" />
+            )}
           </div>
           <p className="text-sm uppercase">
             <Link to={`/user/${username}`}>{username}</Link>
@@ -42,6 +50,9 @@ const BlogCard = ({
           <span className="p-1 px-2 ml-auto bg-rooster-gray text-xs rounded-full ">
             {tag}
           </span>
+          {currentUsername && currentUsername === username ? (
+            <BlogSettingsCard blogId={id} />
+          ) : null}
         </div>
         <Link to={`/blog/${id}`}>
           <span className="text-lg font-semibold mt-2 line-clamp-2 cursor-pointer">
@@ -53,8 +64,8 @@ const BlogCard = ({
           className="mt-1 text-sm text-rooster-textSecondary line-clamp-3"
         ></div>
       </div>
-      <div className="w-28 h-28 overflow-hidden flex items-center justify-center">
-        <img src={image} alt="image" />
+      <div className=" w-full overflow-hidden flex items-center justify-center order-1 rounded  md:w-28 md:h-28 ">
+        <img src={image} alt="image" className="rounded" />
       </div>
     </div>
   );

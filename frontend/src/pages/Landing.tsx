@@ -9,9 +9,7 @@ import {
   World,
 } from "../assets/landing/blogs";
 import { Link } from "react-router-dom";
-import {
-  ArrowUpRightIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 type CardProps = {
   tag: string;
@@ -72,8 +70,8 @@ const Landing = () => {
   ];
 
   return (
-    <div className="pt-56 md:w-7/12 mx-auto p-5 pb-0">
-      <div>
+    <div className="pt-56 md:w-11/12 lg:w-7/12 mx-auto p-5 pb-0">
+      <div className="lg:w-11/12 mx-auto">
         <div className="text-4xl font-medium text-center leading-snug">
           <span className="text-rooster-accent font-bold mb-2 "> Rooster</span>.{" "}
           <br /> Your All-in-One Blogging Hub.
@@ -87,7 +85,7 @@ const Landing = () => {
       <div className="mx-auto py-7">
         <RandomImage />
       </div>
-      <div className="mx-auto py-12 flex flex-col gap-5 ">
+      <div className="mx-auto py-12 flex flex-col gap-5 lg:w-11/12 ">
         <h6 className="font-medium">Recent Publications</h6>
         <div className="">
           {blogList.map((blog) => (
@@ -101,31 +99,32 @@ const Landing = () => {
         </div>
         <div className="text-center pt-10">
           <Link to={"/auth/login"}>
-            <button className="btnOutline py-2 w-1/2 mx-auto  ">
+            <button className="btnSecondary py-2 w-1/2 mx-auto  ">
               View More
             </button>
           </Link>
         </div>
       </div>
-      <div className="flex flex-col gap-2 border-b py-5">
+      <div className="flex flex-col md:flex-row gap-5 border-b py-5 lg:w-11/12 mx-auto">
         <div className="flex-1">
-          <span className="text-rooster-accent font-bold mb-2 text-xl ">
-            {" "}
-            Rooster
-          </span>
-          .
+          <div className="font-bold mb-2 text-xl">
+            <span className="text-rooster-accent  "> Rooster</span>.
+          </div>
           <p className="text-sm text-rooster-textSecondary mt-3">
             This app is designed and developed by{" "}
-            <span className="underline text-rooster-accent">
+            <span className="underline text-rooster-accent cursor-pointer">
               03brainy-clicks
             </span>{" "}
             with the aim of providing an accessible and user-friendly blogging
             platform. It's an open-source application, available for download on{" "}
-            <span className="underline text-rooster-accent">GitHub</span>.
+            <span className="underline text-rooster-accent cursor-pointer">
+              GitHub
+            </span>
+            .
           </p>
         </div>
         <div className="">
-          <ul className="flex gap-2 text-sm">
+          <ul className="flex gap-2 text-sm md:flex-col">
             <li className="flex items-center gap-2 cursor-pointer underline ">
               <a href="" className="flex items-center gap-2 cursor-pointer ">
                 LinkedIn

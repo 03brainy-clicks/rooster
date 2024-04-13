@@ -85,7 +85,7 @@ const Login = () => {
 
   return (
     <div className="flex w-screen h-screen">
-      <div className="w-1/2 authBackground1">
+      <div className="hidden lg:block w-1/2 authBackground1">
         <div className="w-full h-full bg-rooster-black bg-opacity-30 flex flex-col ">
           <div className="flex-1 flex items-center">
             <div className="text-5xl font-bold text-rooster-white text-center w-full">
@@ -104,8 +104,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="min-w-96 flex-1 flex items-center justify-center ">
-        <div className="w-2/3 p-12 rounded bg-white">
+      <div className="md:min-w-96 flex-1 flex items-center justify-center ">
+        <div className=" w-full p-7 md:w-2/3 md:p-12 rounded bg-white">
           <h1 className="text-4xl font-bold">Sign in</h1>
           <div className="mb-7  mt-5">
             <p className="text-sm text-rooster-textSecondary">

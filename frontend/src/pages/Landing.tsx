@@ -1,15 +1,13 @@
 import React from "react";
-import RandomImage from "../components/utils/RandomImage";
 import { getFormattedDate } from "../utils/utilsFunctions";
-import {
-  Travel,
-  Music,
-  LifeStyle,
-  Fashion,
-  World,
-} from "../assets/landing/blogs";
 import { Link } from "react-router-dom";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import Image7 from "../assets/landing/image7.jpeg";
+import Travel from "../assets/landing/blogs/travel.jpeg";
+import Music from "../assets/landing/blogs/music.jpeg";
+import LifeStyle from "../assets/landing/blogs/lifestyle.jpeg";
+import World from "../assets/landing/blogs/world.jpeg";
+import Fashion from "../assets/landing/blogs/fashion.jpeg";
 
 type CardProps = {
   tag: string;
@@ -83,7 +81,14 @@ const Landing = () => {
         </p>
       </div>
       <div className="mx-auto py-7">
-        <RandomImage />
+        <div>
+          <div className="overflow-hidden flex items-center justify-center rounded h-[50vh]">
+            <img src={Image7} alt="Random" className="rounded-lg" />
+          </div>
+          <p className="text-center text-sm mt-5 text-rooster-textSecondary">
+            Moonlit Symphony in Sapphire
+          </p>
+        </div>
       </div>
       <div className="mx-auto py-12 flex flex-col gap-5 lg:w-11/12 ">
         <h6 className="font-medium">Recent Publications</h6>
